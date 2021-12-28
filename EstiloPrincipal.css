@@ -44,11 +44,72 @@ body {
   bottom: 50px;
 }
 
+#indicator {
+  position: absolute;
+  left: 107px;
+  top: 30px;
+  border-top: 3px solid #990000;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(360deg, #ff0000, #990000);
+}
+/*_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_*/
 #tablero {
   background: #3a3a3a;
   position: absolute;
   top: 415px;
   left: 5px;
   right: 5px;
-  height: 200px;
+  height: 250px;
+}
+#botArAb {
+  position: absolute;
+  bottom: 50px;
+  left: 200px;
+  width: 10px;
+  height: 150px;
+  background: #313131;
+  border-left: 10px solid #525252;
+  border-right: 10px solid #282727;
+}
+#botArAb i {
+  position: absolute;
+  top: -5px;
+  left: -22px;
+  height: 50px;
+  width: 50px;
+  background: linear-gradient(#d91a1a, #780707);
+  border-radius: 30px;
+  border: 2px solid #780707;
+}
+
+#botID {
+  position: absolute;
+  bottom: 50px;
+  right: 200px;
+  width: 10px;
+  height: 150px;
+  background: #313131;
+  border-left: 10px solid #525252;
+  border-right: 10px solid #282727;
+}
+#botID i {
+  position: absolute;
+  top: -5px;
+  left: -22px;
+  height: 50px;
+  width: 50px;
+  background: linear-gradient(#d91a1a, #780707);
+  border-radius: 30px;
+  border: 2px solid #780707;
+}
+.basepal {
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  height: 20px;
+  width: 20px;
+  background: #313131;
 }
