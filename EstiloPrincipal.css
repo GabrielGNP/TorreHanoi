@@ -93,6 +93,8 @@ body {
 
 #bot:active ~ #botArAbSup #Baa {
   color: cyan;
+  box-shadow: 3px 3px 10px cyan, -3px 3px 10px cyan, 3px -3px 10px cyan,
+    -3px -3px 10px cyan;
 }
 
 .aga #botArAbSup {
