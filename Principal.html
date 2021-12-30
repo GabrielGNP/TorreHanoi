@@ -15,13 +15,12 @@
   </section>
 
   <section id="tablero">
-    <button id="botArAb">
+    <label class="aga">
+      <input type="button" id="bot" />
       <div id="botArAbSup">
         <i id="Baa" class="fa fa-arrows-v"></i>
       </div>
-
-      <i></i>
-    </button>
+    </label>
 
     <!--<div id="botAb"></div>-->
     <div id="botID">
@@ -33,22 +32,17 @@
   </section>
 </body>
 
-
-
 <script>
   var BotoArAb = document.getElementById(botArAb);
   var BotoArAbSup = document.getElementById(botArAbSup);
 
-BotoArAb.addEventListener() 
+  BotoArAb.addEventListener();
 
-  function ApretadoBotonAbAr()
-  {
-      BotoArAbSup.style.bottom = "5px";
+  function ApretadoBotonAbAr() {
+    BotoArAbSup.style.bottom = "5px";
   }
 
-  function SoltadoBotonAbAr()
-  {
+  function SoltadoBotonAbAr() {
     BotonArAbSup.style.bottom = "10px";
   }
-
 </script>

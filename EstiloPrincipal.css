@@ -66,26 +66,39 @@ body {
   width: 770px;
   height: 250px;
 }
-#botArAb {
+
+.aga {
   position: absolute;
 
   bottom: 50px;
   left: 200px;
+}
+
+#bot {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
   height: 20px;
-  width: 65px;
+  width: 55px;
+
   background: #6b0505;
   border-left: solid 10px#8e0c0c;
   border-right: solid 10px#530909;
   border-bottom: solid 1px #781414;
 }
-#botArAb :active ~ #botArAbSup {
-  bottom: 5px;
+
+#bot:active ~ #botArAbSup {
+  bottom: 10px;
 }
 
-#botArAb #botArAbSup {
+#bot:active ~ #botArAbSup #Baa {
+  color: cyan;
+}
+
+.aga #botArAbSup {
   position: absolute;
-  bottom: 10px;
-  left: -15px;
+  bottom: 15px;
+  left: -10px;
   width: 56px;
   height: 35px;
 
