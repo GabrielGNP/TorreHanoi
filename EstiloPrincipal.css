@@ -1,6 +1,7 @@
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 body {
   background: #2b2b2b;
+  overflow-y: hidden;
 }
 
 #contenedor {
@@ -89,12 +90,12 @@ body {
 
 #bot:active ~ #botArAbSup {
   bottom: 10px;
+  /*  box-shadow: 3px 3px 10px cyan, -3px 3px 10px cyan, 3px -3px 10px cyan,
+    -3px -3px 10px cyan;*/
 }
 
 #bot:active ~ #botArAbSup #Baa {
   color: cyan;
-  box-shadow: 3px 3px 10px cyan, -3px 3px 10px cyan, 3px -3px 10px cyan,
-    -3px -3px 10px cyan;
 }
 
 .aga #botArAbSup {
@@ -127,6 +128,8 @@ body {
   background: #313131;
   border-left: 10px solid #525252;
   border-right: 10px solid #282727;
+  transform-origin: 5px 150px;
+  transform: rotate(0deg);
 }
 #botID i {
   position: absolute;
@@ -141,8 +144,8 @@ body {
 
 .basepal {
   position: absolute;
-  bottom: -10px;
-  left: -70px;
+  bottom: 30px;
+  left: 440px;
   height: 30px;
   width: 150px;
   background: #c91a1a;
