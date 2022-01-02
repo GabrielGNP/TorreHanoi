@@ -18,7 +18,7 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
-  right: 10px;
+  width: 760px;
   bottom: 10px;
   height: 380px;
 }
@@ -49,7 +49,7 @@ body {
 
 #indicator {
   position: absolute;
-  left: 107px;
+  left: 107px; /*107 poste 1 ---- 348 poste2 ---- 623 poste3*/
   top: 30px;
   border-top: 3px solid #990000;
   border-bottom-left-radius: 100px;
@@ -176,4 +176,66 @@ body {
   bottom: 200px;
   color: #282828;
   font-size: 25px;
+}
+
+/* ==============DISCOS============================*/
+#Disco1 {
+  position: absolute;
+  left: -85px;
+  top: 180px;
+  width: 200px;
+  height: 20px;
+  border-radius: 10px;
+
+  background: rgb(195, 27, 27);
+}
+#Disco2 {
+  position: absolute;
+  left: -75px;
+  top: 160px;
+  width: 180px;
+  height: 20px;
+  border-radius: 10px;
+
+  background: orange;
+}
+#Disco3 {
+  position: absolute;
+  left: -65px;
+  top: 140px;
+  width: 160px;
+  height: 20px;
+  border-radius: 10px;
+
+  background: rgb(228, 228, 7);
+}
+#Disco4 {
+  position: absolute;
+  left: -55px;
+  top: 120px;
+  width: 140px;
+  height: 20px;
+  border-radius: 10px;
+
+  background: rgb(6, 178, 6);
+}
+#Disco5 {
+  position: absolute;
+  left: -45px;
+  top: 100px;
+  width: 120px;
+  height: 20px;
+  border-radius: 10px;
+
+  background: rgb(36, 36, 188);
+}
+#Disco6 {
+  position: absolute;
+  left: -35px;
+  top: 80px;
+  width: 100px;
+  height: 20px;
+  border-radius: 10px;
+
+  background: rgb(120, 36, 188);
 }

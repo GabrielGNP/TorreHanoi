@@ -8,7 +8,14 @@
 <body>
   <section id="Contenedor">
     <section id="sombra">
-      <div class="poste" id="poste1"></div>
+      <div class="poste" id="poste1">
+        <div id="Disco1"></div>
+        <div id="Disco2"></div>
+        <div id="Disco3"></div>
+        <div id="Disco4"></div>
+        <div id="Disco5"></div>
+        <div id="Disco6"></div>
+      </div>
       <div class="poste" id="poste2"></div>
       <div class="poste" id="poste3"></div>
       <div id="indicator"></div>
@@ -39,41 +46,159 @@
 </body>
 
 <script>
-  var BotoT = document.getElementById(bot);
-  var BotoArAbSup = document.getElementById(botArAbSup);
-
+  var BotoT = document.getElementById("bot");
+  var BotoArAbSup = document.getElementById("botArAbSup");
+  var Flech = document.getElementById("Baa");
   var BotID = document.getElementById("botID");
 
   var FlDs = document.getElementById("FlD");
   var FlIs = document.getElementById("FlI");
 
+  var Indicador = {
+    Objeto: document.getElementById("indicator"),
+    D: false,
+    DC: document.getElementById(""),
+    PosteIndicado: 1
+  };
+  var Post1 = {
+    Cont: 6,
+    P: document.getElementById("Poste1")
+  };
+  var Post2 = {
+    Cont: 0,
+    P: document.getElementById("Poste2")
+  };
+  var Post3 = {
+    Cont: 0,
+    P: document.getElementById("Poste3")
+  };
+
+  var D1 = {
+    D: document.getElementById("Disco1"),
+    V: 1
+  };
+  var D2 = {
+    D: document.getElementById("Disco2"),
+    V: 2
+  };
+  var D3 = {
+    D: document.getElementById("Disco3"),
+    V: 3
+  };
+  var D4 = {
+    D: document.getElementById("Disco4"),
+    V: 4
+  };
+  var D5 = {
+    D: document.getElementById("Disco5"),
+    V: 5
+  };
+  var D6 = {
+    D: document.getElementById("Disco6"),
+    V: 6
+  };
+
   document.addEventListener("keydown", Teclas);
 
+  function TomarDisco(Post) {
+    alert("Entra2");
+    switch (Post.Cont) {
+      case 1:
+        break;
+      case 2:
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+      case 6:
+        alert("Entra3");
+        Indicador.D = true;
+        Indicador.DC = D6.D;
+        alert(Indicador.D);
+        alert(Indicador.DC.id);
+        alert("Int1" + D6.D.id);
+
+        alert("Int2" + D6.D.id);
+        Post.P.removeChild(D6.D);
+
+        break;
+    }
+  }
+
   function Teclas(evento) {
-    alert(evento.keyCode);
     var CodTec = evento.keyCode;
     switch (evento.keyCode) {
       case 38: //up
-        elert("arriba");
+        //________=_=_=_==_=_=
         break;
       case 40: //down
-        elert("abajo");
+        BotoArAbSup.style.bottom = "10px";
+        Flech.style.color = "#27e3ed";
+        setTimeout(function () {
+          BotoArAbSup.style.bottom = "15px";
+          Flech.style.color = "#282828";
+        }, 150);
+
+        if (!Indicador.D) {
+          switch (Indicador.PosteIndicado) {
+            case 1:
+              alert("Entra1");
+              TomarDisco(Post1);
+              break;
+            case 2:
+              break;
+            case 3:
+              break;
+          }
+        }
         break;
       case 37: //left
         BotID.style.transform = "rotate(-15deg)";
         FlIs.style.color = "#27e3ed";
+        switch (Indicador.PosteIndicado) {
+          case 1:
+            FlIs.style.color = "red";
+            break;
+          case 2:
+            Indicador.Objeto.style.left = "107px";
+
+            Indicador.PosteIndicado = 1;
+            break;
+          case 3:
+            Indicador.Objeto.style.left = "348px";
+            Indicador.PosteIndicado = 2;
+            break;
+        }
         setTimeout(function () {
           BotID.style.transform = "rotate(0deg)";
           FlIs.style.color = "#282828";
         }, 150); //100 equivale a 0.1 seg, 1000 equivale a 1 seg
+
         break;
       case 39: //right
         BotID.style.transform = "rotate(15deg)";
         FlDs.style.color = "#27e3ed";
+        switch (Indicador.PosteIndicado) {
+          case 1:
+            Indicador.Objeto.style.left = "348px";
+            Indicador.PosteIndicado = 2;
+            break;
+          case 2:
+            Indicador.Objeto.style.left = "623px";
+            Indicador.PosteIndicado = 3;
+            break;
+          case 3:
+            FlDs.style.color = "red";
+            break;
+        }
         setTimeout(function () {
           BotID.style.transform = "rotate(0deg)";
           FlDs.style.color = "#282828";
         }, 150); //100 equivale a 0.1 seg, 1000 equivale a 1 seg
+
         break;
     }
   }
@@ -84,6 +209,7 @@
   function SoltadoBotonAbAr() {
     BotonArAbSup.style.bottom = "10px";
   }
+
   function mover(e) {
     x = e.clientX;
     y = e.clientY;
