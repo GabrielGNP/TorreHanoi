@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <title>CoordBox</title>
@@ -24,9 +25,13 @@
     </label>
 
     <!--<div id="botAb"></div>-->
-    <div id="botID" onclick="mover()">
-      <i></i>
-    </div>
+    <label id="Pal" onclick="mover(event)">
+      <div id="botID">
+        <i></i>
+      </div>
+    </label>
+    <i id="FlI" class="fa fa-arrow-left"></i>
+    <i id="FlD" class="fa fa-arrow-right"></i>
     <div class="basepal"></div>
 
     <!--<div id="botD"></div>-->
@@ -37,13 +42,69 @@
   var BotoT = document.getElementById(bot);
   var BotoArAbSup = document.getElementById(botArAbSup);
 
-  BotoT.addEventListener();
+  var BotID = document.getElementById("botID");
 
+  var FlDs = document.getElementById("FlD");
+  var FlIs = document.getElementById("FlI");
+
+  document.addEventListener("keydown", Teclas);
+
+  function Teclas(evento) {
+    alert(evento.keyCode);
+    var CodTec = evento.keyCode;
+    switch (evento.keyCode) {
+      case 38: //up
+        elert("arriba");
+        break;
+      case 40: //down
+        elert("abajo");
+        break;
+      case 37: //left
+        BotID.style.transform = "rotate(-15deg)";
+        FlIs.style.color = "#27e3ed";
+        setTimeout(function () {
+          BotID.style.transform = "rotate(0deg)";
+          FlIs.style.color = "#282828";
+        }, 150); //100 equivale a 0.1 seg, 1000 equivale a 1 seg
+        break;
+      case 39: //right
+        BotID.style.transform = "rotate(15deg)";
+        FlDs.style.color = "#27e3ed";
+        setTimeout(function () {
+          BotID.style.transform = "rotate(0deg)";
+          FlDs.style.color = "#282828";
+        }, 150); //100 equivale a 0.1 seg, 1000 equivale a 1 seg
+        break;
+    }
+  }
   function ApretadoBotonAbAr() {
     BotoArAbSup.style.bottom = "5px";
   }
 
   function SoltadoBotonAbAr() {
     BotonArAbSup.style.bottom = "10px";
+  }
+  function mover(e) {
+    x = e.clientX;
+    y = e.clientY;
+    if (x <= 515) {
+      //=======VISUAL=======
+      BotID.style.transform = "rotate(-15deg)";
+      FlIs.style.color = "#27e3ed";
+      setTimeout(function () {
+        BotID.style.transform = "rotate(0deg)";
+        FlIs.style.color = "#282828";
+      }, 150); //100 equivale a 0.1 seg, 1000 equivale a 1 seg
+    }
+
+    if (x > 515) {
+      //=======VISUAL=======
+      BotID.style.transform = "rotate(15deg)";
+      FlDs.style.color = "#27e3ed";
+      setTimeout(function () {
+        BotID.style.transform = "rotate(0deg)";
+        FlDs.style.color = "#282828";
+      }, 150); //100 equivale a 0.1 seg, 1000 equivale a 1 seg
+    }
   }
 </script>

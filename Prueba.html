@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function getPos(e) {
+        x = e.clientX;
+        y = e.clientY;
+        cursor = "La posicion del mouse es : " + x + " and " + y;
+        document.getElementById("displayArea").innerHTML = cursor;
+      }
+
+      function stopTracking() {
+        document.getElementById("displayArea").innerHTML = "";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div
+      id="focusArea"
+      onmousemove="getPos(event)"
+      onmouseout="stopTracking()"
+      style="position: absolute; left: 100px;"
+    >
+      <p>Pasa el mouse por aqui para capturar la posición</p>
+    </div>
+
+    <p id="displayArea"></p>
+  </body>
+</html>

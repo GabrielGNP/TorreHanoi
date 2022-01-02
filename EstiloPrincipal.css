@@ -95,7 +95,7 @@ body {
 }
 
 #bot:active ~ #botArAbSup #Baa {
-  color: cyan;
+  color: #27e3ed;
 }
 
 .aga #botArAbSup {
@@ -119,10 +119,20 @@ body {
   z-index: 999;
 }
 
+#Pal {
+  position: absolute;
+  left: 440px;
+  bottom: 50px;
+  width: 150px;
+  height: 180px;
+  background: hidden;
+
+  z-index: 1000px;
+}
 #botID {
   position: absolute;
-  bottom: 50px;
-  left: 500px;
+  bottom: -10px;
+  left: 60px;
   width: 10px;
   height: 150px;
   background: #313131;
@@ -151,4 +161,19 @@ body {
   background: #c91a1a;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+}
+
+#FlI {
+  position: absolute;
+  left: 480px;
+  bottom: 200px;
+  color: #282828;
+  font-size: 25px;
+}
+#FlD {
+  position: absolute;
+  left: 525px;
+  bottom: 200px;
+  color: #282828;
+  font-size: 25px;
 }
