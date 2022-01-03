@@ -25,7 +25,7 @@
 
   <section id="tablero">
     <label class="aga">
-      <input type="button" id="bot" />
+      <input type="button" id="bot" onclick="EstiloBoton()" />
       <div id="botArAbSup">
         <i id="Baa" class="fa fa-arrows-v"></i>
         <!--        <i id="Baa">○</i>-->
@@ -43,9 +43,10 @@
     <div class="basepal"></div>
     <!--<div id="botD"></div>-->
   </section>
-  <label class="info" id="Inf">
-    <button onclick="RecInfo()">0</button>
-  </label>
+  <button onclick="RecInfo()" style="position: absolute; left: 770px;">
+    0
+  </button>
+  <label class="info" id="Inf"> </label>
 </body>
 
 <script>
@@ -204,16 +205,20 @@
     Indicador.DC = D0;
   }
 
+  function EstiloBoton() {
+    BotoArAbSup.style.bottom = "10px";
+    Flech.style.color = "#27e3ed";
+    setTimeout(function () {
+      BotoArAbSup.style.bottom = "15px";
+      Flech.style.color = "#282828";
+    }, 150);
+  }
+
   function Teclas(evento) {
     var CodTec = evento.keyCode;
     switch (evento.keyCode) {
       case 38: //up
-        BotoArAbSup.style.bottom = "10px";
-        Flech.style.color = "#27e3ed";
-        setTimeout(function () {
-          BotoArAbSup.style.bottom = "15px";
-          Flech.style.color = "#282828";
-        }, 150);
+        EstiloBoton();
         if (!Indicador.D) {
           switch (Indicador.PosteIndicado) {
             case 1:
