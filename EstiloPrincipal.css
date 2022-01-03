@@ -239,3 +239,16 @@ body {
 
   background: rgb(120, 36, 188);
 }
+
+/*==============INFORMACION==============*/
+.info {
+  position: absolute;
+  left: 800px;
+  top: 10px;
+  height: 600px;
+  width: 500px;
+  background: rgb(1, 7, 33);
+  color: green;
+  font-size: 25px;
+  overflow: auto;
+}

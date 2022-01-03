@@ -6,6 +6,7 @@
 </head>
 
 <body>
+  <div id="d0"></div>
   <section id="Contenedor">
     <section id="sombra">
       <div class="poste" id="poste1">
@@ -40,9 +41,11 @@
     <i id="FlI" class="fa fa-arrow-left"></i>
     <i id="FlD" class="fa fa-arrow-right"></i>
     <div class="basepal"></div>
-
     <!--<div id="botD"></div>-->
   </section>
+  <label class="info" id="Inf">
+    <button onclick="RecInfo()">0</button>
+  </label>
 </body>
 
 <script>
@@ -74,7 +77,7 @@
   };
 
   var D0 = {
-    D: document.getElementById(""),
+    D: document.getElementById("d0"),
     V: 0
   };
   var D1 = {
@@ -107,82 +110,93 @@
   function TomarDisco(Post) {
     switch (Post.Cont) {
       case 1:
+        Post.Cont = 0;
         Indicador.D = true;
         var Cambio = Post.P.removeChild(D1.D);
         Indicador.DC = D1;
         Indicador.Objeto.appendChild(Cambio);
         Indicador.DC.style.top = "50px";
-        Post.Cont = 0;
+
         break;
       case 2:
+        Post.Cont = 1;
         Indicador.D = true;
         var Cambio = Post.P.removeChild(D2.D);
         Indicador.DC = D2;
         Indicador.Objeto.appendChild(Cambio);
         Indicador.DC.style.top = "50px";
-        Post.Cont = 1;
+
         break;
       case 3:
+        Post.Cont = 2;
         Indicador.D = true;
         var Cambio = Post.P.removeChild(D3.D);
         Indicador.DC = D3;
         Indicador.Objeto.appendChild(Cambio);
         Indicador.DC.style.top = "50px";
-        Post.Cont = 2;
+
         break;
       case 4:
+        Post.Cont = 3;
         Indicador.D = true;
         var Cambio = Post.P.removeChild(D4.D);
         Indicador.DC = D4;
         Indicador.Objeto.appendChild(Cambio);
         Indicador.DC.style.top = "50px";
-        Post.Cont = 3;
+
         break;
       case 5:
+        Post.Cont = 4;
         Indicador.D = true;
         var Cambio = Post.P.removeChild(D5.D);
         Indicador.DC = D5;
         Indicador.Objeto.appendChild(Cambio);
         Indicador.DC.style.top = "50px";
-        Post.Cont = 4;
+
         break;
       case 6:
+        Post.Cont = 5;
         Indicador.D = true;
         var Cambio = Post.P.removeChild(D6.D);
         Indicador.DC = D6;
         Indicador.Objeto.appendChild(Cambio);
         Indicador.DC.style.top = "50px";
-        Post.Cont = 5;
+
         break;
     }
   }
 
   function PonerDisco(Post) {
-    Indicador.D = false;
     var Cambio = Indicador.Objeto.removeChild(Indicador.DC.D);
     Post.P.appendChild(Cambio);
     switch (Post.Cont) {
       case 0:
+        Indicador.D = false;
         D6.D.style.top = "180px";
         Post.Cont = Post.Cont + 1;
         break;
       case 1:
+        Indicador.D = false;
         D6.D.style.top = "160px";
         Post.Cont = Indicador.DC.V;
         break;
       case 2:
+        Indicador.D = false;
         D6.D.style.top = "140px";
         Post.Cont = Indicador.DC.V;
         break;
       case 3:
+        Indicador.D = false;
         D6.D.style.top = "120px";
         Post.Cont = Indicador.DC.V;
         break;
       case 4:
+        Indicador.D = false;
         D6.D.style.top = "100px";
         Post.Cont = Indicador.DC.V;
         break;
       case 5:
+        Indicador.D = false;
         D6.D.style.top = "80px";
         Post.Cont = Indicador.DC.V;
         break;
@@ -201,7 +215,6 @@
           Flech.style.color = "#282828";
         }, 150);
         if (!Indicador.D) {
-          alert("EntraQuitar");
           switch (Indicador.PosteIndicado) {
             case 1:
               TomarDisco(Post1);
@@ -223,7 +236,6 @@
           Flech.style.color = "#282828";
         }, 150);
         if (Indicador.D) {
-          alert("EntraPoner");
           switch (Indicador.PosteIndicado) {
             case 1:
               PonerDisco(Post1);
@@ -314,5 +326,30 @@
         FlDs.style.color = "#282828";
       }, 150); //100 equivale a 0.1 seg, 1000 equivale a 1 seg
     }
+  }
+
+  function RecInfo() {
+    var Info = document.getElementById("Inf");
+    var inf0 = document.createElement("div");
+    inf0.innerText = "========================";
+    var inf1 = document.createElement("div");
+    inf1.innerText = "Indicador.D: " + Indicador.D;
+    var inf2 = document.createElement("div");
+    inf2.innerText = "Indicador.PosteIndicado: " + Indicador.PosteIndicado;
+    /*   var inf3 = document.createElement("div");
+    inf3.innerText = "Indicador.DC.D.id: " + Indicador.DC.D.id;*/
+    var inf4 = document.createElement("div");
+    inf4.innerText = "Post1.Cont: " + Post1.Cont;
+    var inf5 = document.createElement("div");
+    inf5.innerText = "Post2.Cont: " + Post2.Cont;
+    var inf6 = document.createElement("div");
+    inf6.innerText = "Post3.Cont: " + Post3.Cont;
+    Info.appendChild(inf0);
+    Info.appendChild(inf1);
+    Info.appendChild(inf2);
+    /*Info.appendChild(inf3);*/
+    Info.appendChild(inf4);
+    Info.appendChild(inf5);
+    Info.appendChild(inf6);
   }
 </script>
