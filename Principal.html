@@ -57,22 +57,26 @@
   var Indicador = {
     Objeto: document.getElementById("indicator"),
     D: false,
-    DC: document.getElementById(""),
+    DC: D0,
     PosteIndicado: 1
   };
   var Post1 = {
     Cont: 6,
-    P: document.getElementById("Poste1")
+    P: document.getElementById("poste1")
   };
   var Post2 = {
     Cont: 0,
-    P: document.getElementById("Poste2")
+    P: document.getElementById("poste2")
   };
   var Post3 = {
     Cont: 0,
-    P: document.getElementById("Poste3")
+    P: document.getElementById("poste3")
   };
 
+  var D0 = {
+    D: document.getElementById(""),
+    V: 0
+  };
   var D1 = {
     D: document.getElementById("Disco1"),
     V: 1
@@ -101,38 +105,115 @@
   document.addEventListener("keydown", Teclas);
 
   function TomarDisco(Post) {
-    alert("Entra2");
     switch (Post.Cont) {
       case 1:
+        Indicador.D = true;
+        var Cambio = Post.P.removeChild(D1.D);
+        Indicador.DC = D1;
+        Indicador.Objeto.appendChild(Cambio);
+        Indicador.DC.style.top = "50px";
+        Post.Cont = 0;
         break;
       case 2:
+        Indicador.D = true;
+        var Cambio = Post.P.removeChild(D2.D);
+        Indicador.DC = D2;
+        Indicador.Objeto.appendChild(Cambio);
+        Indicador.DC.style.top = "50px";
+        Post.Cont = 1;
         break;
       case 3:
+        Indicador.D = true;
+        var Cambio = Post.P.removeChild(D3.D);
+        Indicador.DC = D3;
+        Indicador.Objeto.appendChild(Cambio);
+        Indicador.DC.style.top = "50px";
+        Post.Cont = 2;
         break;
       case 4:
+        Indicador.D = true;
+        var Cambio = Post.P.removeChild(D4.D);
+        Indicador.DC = D4;
+        Indicador.Objeto.appendChild(Cambio);
+        Indicador.DC.style.top = "50px";
+        Post.Cont = 3;
         break;
       case 5:
+        Indicador.D = true;
+        var Cambio = Post.P.removeChild(D5.D);
+        Indicador.DC = D5;
+        Indicador.Objeto.appendChild(Cambio);
+        Indicador.DC.style.top = "50px";
+        Post.Cont = 4;
         break;
       case 6:
-        alert("Entra3");
         Indicador.D = true;
-        Indicador.DC = D6.D;
-        alert(Indicador.D);
-        alert(Indicador.DC.id);
-        alert("Int1" + D6.D.id);
-
-        alert("Int2" + D6.D.id);
-        Post.P.removeChild(D6.D);
-
+        var Cambio = Post.P.removeChild(D6.D);
+        Indicador.DC = D6;
+        Indicador.Objeto.appendChild(Cambio);
+        Indicador.DC.style.top = "50px";
+        Post.Cont = 5;
         break;
     }
+  }
+
+  function PonerDisco(Post) {
+    Indicador.D = false;
+    var Cambio = Indicador.Objeto.removeChild(Indicador.DC.D);
+    Post.P.appendChild(Cambio);
+    switch (Post.Cont) {
+      case 0:
+        D6.D.style.top = "180px";
+        Post.Cont = Post.Cont + 1;
+        break;
+      case 1:
+        D6.D.style.top = "160px";
+        Post.Cont = Indicador.DC.V;
+        break;
+      case 2:
+        D6.D.style.top = "140px";
+        Post.Cont = Indicador.DC.V;
+        break;
+      case 3:
+        D6.D.style.top = "120px";
+        Post.Cont = Indicador.DC.V;
+        break;
+      case 4:
+        D6.D.style.top = "100px";
+        Post.Cont = Indicador.DC.V;
+        break;
+      case 5:
+        D6.D.style.top = "80px";
+        Post.Cont = Indicador.DC.V;
+        break;
+    }
+    Indicador.DC = D0;
   }
 
   function Teclas(evento) {
     var CodTec = evento.keyCode;
     switch (evento.keyCode) {
       case 38: //up
-        //________=_=_=_==_=_=
+        BotoArAbSup.style.bottom = "10px";
+        Flech.style.color = "#27e3ed";
+        setTimeout(function () {
+          BotoArAbSup.style.bottom = "15px";
+          Flech.style.color = "#282828";
+        }, 150);
+        if (!Indicador.D) {
+          alert("EntraQuitar");
+          switch (Indicador.PosteIndicado) {
+            case 1:
+              TomarDisco(Post1);
+              break;
+            case 2:
+              TomarDisco(Post2);
+              break;
+            case 3:
+              TomarDisco(Post3);
+              break;
+          }
+        }
         break;
       case 40: //down
         BotoArAbSup.style.bottom = "10px";
@@ -141,16 +222,17 @@
           BotoArAbSup.style.bottom = "15px";
           Flech.style.color = "#282828";
         }, 150);
-
-        if (!Indicador.D) {
+        if (Indicador.D) {
+          alert("EntraPoner");
           switch (Indicador.PosteIndicado) {
             case 1:
-              alert("Entra1");
-              TomarDisco(Post1);
+              PonerDisco(Post1);
               break;
             case 2:
+              PonerDisco(Post2);
               break;
             case 3:
+              PonerDisco(Post3);
               break;
           }
         }
