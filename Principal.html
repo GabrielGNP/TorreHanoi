@@ -8,6 +8,7 @@
 <body>
   <div id="d0"></div>
   <section id="Contenedor">
+    <!--Pantalla del juego-->
     <section id="sombra">
       <div class="poste" id="poste1">
         <div id="Disco1"></div>
@@ -24,31 +25,37 @@
   </section>
 
   <section id="tablero">
+    <!--contenedor de boton y palanca-->
     <label class="aga">
+      <!--boton-->
       <input type="button" id="bot" onclick="EstiloBoton()" />
       <div id="botArAbSup">
         <i id="Baa" class="fa fa-arrows-v"></i>
-        <!--        <i id="Baa">○</i>-->
       </div>
     </label>
 
-    <!--<div id="botAb"></div>-->
+    <!--palanca-->
     <label id="Pal" onclick="mover(event)">
       <div id="botID">
         <i></i>
       </div>
     </label>
+
     <i id="FlI" class="fa fa-arrow-left"></i>
     <i id="FlD" class="fa fa-arrow-right"></i>
     <div class="basepal"></div>
     <!--<div id="botD"></div>-->
   </section>
+
+  <!--Consola-->
   <button onclick="RecInfo()" style="position: absolute; left: 770px;">
     0
   </button>
   <label class="info" id="Inf"> </label>
-</body>
 
+  <script src="FuncionamientoB.js"></script>
+</body>
+<!--
 <script>
   var BotoT = document.getElementById("bot");
   var BotoArAbSup = document.getElementById("botArAbSup");
@@ -80,30 +87,6 @@
   var D0 = {
     D: document.getElementById("d0"),
     V: 0
-  };
-  var D1 = {
-    D: document.getElementById("Disco1"),
-    V: 1
-  };
-  var D2 = {
-    D: document.getElementById("Disco2"),
-    V: 2
-  };
-  var D3 = {
-    D: document.getElementById("Disco3"),
-    V: 3
-  };
-  var D4 = {
-    D: document.getElementById("Disco4"),
-    V: 4
-  };
-  var D5 = {
-    D: document.getElementById("Disco5"),
-    V: 5
-  };
-  var D6 = {
-    D: document.getElementById("Disco6"),
-    V: 6
   };
 
   document.addEventListener("keydown", Teclas);
@@ -342,7 +325,7 @@
     var inf2 = document.createElement("div");
     inf2.innerText = "Indicador.PosteIndicado: " + Indicador.PosteIndicado;
     /*   var inf3 = document.createElement("div");
-    inf3.innerText = "Indicador.DC.D.id: " + Indicador.DC.D.id;*/
+      inf3.innerText = "Indicador.DC.D.id: " + Indicador.DC.D.id;*/
     var inf4 = document.createElement("div");
     inf4.innerText = "Post1.Cont: " + Post1.Cont;
     var inf5 = document.createElement("div");
@@ -358,3 +341,4 @@
     Info.appendChild(inf6);
   }
 </script>
+-->
